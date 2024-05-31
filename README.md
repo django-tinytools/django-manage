@@ -15,13 +15,13 @@ To use the script copy the *manage* file to the root directory of your django
 project. You don't need to copy the *LICENSE* file to your project, hence the
 manage file contains the copyright notice.
 
-```
+``` .sh
 cp /path/to/django-manage /path/to/django-project
 ```
 
 You can run the script with all of the parameters accepted by manage.py
 
-```
+``` .sh
 /path/to/django-project/manage makemigrations
 ```
 

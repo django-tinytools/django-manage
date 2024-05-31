@@ -1,5 +1,5 @@
 #!/bin/sh
-DJANGO_MANAGE_VERSION=0.1.0
+DJANGO_MANAGE_VERSION=0.1.1
 
 ###############################################################################
 # Copyright (c) 2024 Christian Moser . All rights reserved.                   #
@@ -35,8 +35,10 @@ SELF="`realpath "$0"`"
 BASEDIR="`dirname "$SELF"`"
 
 HAVE_PYTHON_VENV="NO"
-
-if [ -f "${BASEDIR}/python-venv/bin/activate" ]; then
+if [ -n "$DJANGO_VENV" -a -f "${DJANGO_VENV}/bin/activate" ]; then
+    HAVE_PYTHON_VENV="YES"
+    . "${DJANGO_VENV}/bin/activate"
+elif [ -f "${BASEDIR}/python-venv/bin/activate" ]; then
     HAVE_PYTHON_VENV="YES"
     . "${BASEDIR}/python-venv/bin/activate"
 elif [ -f "${BASEDIR}/venv/bin/activate" ]; then
